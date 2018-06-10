@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context="edu.cnm.deepdive.reflections.controllers.NewReflectionActivity">
+
+  <TextView
+    android:id="@+id/reflection_date_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/new_reflection_date_text_view_top"
+    android:text="@string/date_field_label"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/date_edit_text"
+    app:layout_constraintLeft_toLeftOf="@id/date_edit_text"/>
+
+  <!-- format to mm/dd/yyyy -->
+  <EditText
+    android:id="@+id/date_edit_text"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/date_edit_text_height"
+    android:hint="@string/date_field"
+    android:gravity="center"
+    android:inputType="date"
+    android:background="@drawable/back"
+    android:layout_marginBottom="@dimen/reflection_view_margin"
+    app:layout_constraintTop_toTopOf="@id/reflection_date_text_view"
+    app:layout_constraintBottom_toTopOf="@id/exercise_name_text_view"
+    app:layout_constraintLeft_toLeftOf="@+id/exercise_name_text_view"/>
+
+  <TextView
+    android:id="@+id/exercise_name_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/exercise_name"
+    android:layout_marginTop="@dimen/reflection_view_margin"
+    app:layout_constraintLeft_toLeftOf="@id/exercise_name_edit_text"
+    app:layout_constraintTop_toBottomOf="@+id/date_edit_text"
+    app:layout_constraintBottom_toTopOf="@+id/exercise_name_edit_text"/>
+
+  <EditText
+    android:id="@+id/exercise_name_edit_text"
+    android:layout_width="@dimen/exercise_edit_text_width"
+    android:layout_height="@dimen/exercise_edit_text_height"
+    android:background="@drawable/back"
+    android:layout_marginBottom="@dimen/reflection_view_margin"
+    app:layout_constraintTop_toBottomOf="@id/exercise_name_text_view"
+    app:layout_constraintLeft_toLeftOf="@id/reflection_text_view"
+    app:layout_constraintBottom_toTopOf="@id/reflection_text_view" />
+
+  <TextView
+    android:id="@+id/reflection_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/reflection_text"
+    app:layout_constraintLeft_toLeftOf="@+id/reflection_edit_text"
+    android:layout_marginTop="@dimen/reflection_view_margin"
+    app:layout_constraintTop_toBottomOf="@+id/exercise_name_edit_text"
+    app:layout_constraintBottom_toTopOf="@+id/reflection_edit_text"/>
+
+  <!-- align cursor to top -->
+  <EditText
+    android:id="@+id/reflection_edit_text"
+    android:layout_width="@dimen/reflection_edit_text_width"
+    android:layout_height="@dimen/reflection_edit_text_height"
+    android:background="@drawable/back"
+    android:layout_marginBottom="@dimen/reflection_view_margin"
+    app:layout_constraintTop_toBottomOf="@id/reflection_text_view"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/reflection_save_button" />
+
+  <Button
+    android:id="@+id/reflection_save_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/save_button"
+    android:layout_marginTop="@dimen/reflection_view_margin"
+    android:layout_marginBottom="@dimen/reflection_view_margin"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/reflection_edit_text" />
+
+  <Button
+    android:id="@+id/reflection_cancel_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/cancel_button"
+    android:layout_marginTop="@dimen/reflection_view_margin"
+    android:layout_marginBottom="@dimen/reflection_view_margin"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/reflection_save_button" />
+
+</android.support.constraint.ConstraintLayout>

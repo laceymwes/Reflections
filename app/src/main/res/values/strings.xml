@@ -1,4 +1,11 @@
 <resources>
   <string name="app_name">Reflections</string>
   <string name="mike_reflections">Mike\'s Reflections</string>
+  <string name="date_field">mm/dd/yyyy</string>
+  <string name="date_icon_desc">Date icon.</string>
+  <string name="exercise_name">Exercise Name</string>
+  <string name="save_button">Save</string>
+  <string name="cancel_button">Cancel</string>
+  <string name="reflection_text">Reflection</string>
+  <string name="date_field_label">Date</string>
 </resources>
