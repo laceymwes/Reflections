@@ -17,9 +17,9 @@ public class ReflectionsListActivity extends AppCompatActivity {
 
   private ListView listView;
   private ReflectionsAdapter reflectionsAdapter;
-  private AppDatabase appDatabase;
   private Reflection[] reflections;
   private FloatingActionButton addButton;
+  private ReflectionsListArrayViewModel reflectionsListArrayViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,8 @@ public class ReflectionsListActivity extends AppCompatActivity {
     setContentView(R.layout.activity_reflections_list);
     listView = findViewById(R.id.reflections_list_view);
     reflectionsAdapter = new ReflectionsAdapter(getApplicationContext(), 0);
-    // FIXME: move db object and transactions to ViewModel helper class
-//    appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class,
-//                                                            "reflection").build();
-//    reflections = appDatabase.reflectionDAO().getAll();
+    reflectionsListArrayViewModel = new ReflectionsListArrayViewModel(getApplicationContext());
+    reflections = reflectionsListArrayViewModel.getReflections();
     listView.setAdapter(reflectionsAdapter);
     addButton = findViewById(R.id.reflections_fab);
     addButton.setOnClickListener(new View.OnClickListener() {
