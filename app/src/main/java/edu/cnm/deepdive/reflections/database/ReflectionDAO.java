@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public interface ReflectionDAO {
 
   @Query("SELECT * FROM reflection")
-  ArrayList<Reflection> getAll(); // Retrieve all reflection data
+  Reflection[] getAll(); // Retrieve all reflection data
 
   @Insert
   void insertAll(Reflection ... reflection); // Add new reflections on exercises

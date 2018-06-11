@@ -3,16 +3,18 @@ package edu.cnm.deepdive.reflections.database;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 import java.util.Date;
 
 @Entity
 public class Reflection {
 
+  @NonNull
   @PrimaryKey
   private String exerciseName;
 
   @ColumnInfo(name = "date")
-  private Date date;
+  private String date;
 
   @ColumnInfo(name = "reflection")
   private String reflection;
@@ -25,11 +27,11 @@ public class Reflection {
     this.exerciseName = exerciseName;
   }
 
-  public Date getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(Date date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

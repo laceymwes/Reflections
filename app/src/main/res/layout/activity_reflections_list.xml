@@ -7,20 +7,22 @@
   android:layout_height="match_parent"
   tools:context="edu.cnm.deepdive.reflections.controllers.ReflectionsListActivity">
 
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/reflections_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:src="@drawable/ic_add_circle_black_24dp"
+    android:accessibilityTraversalBefore="@+id/reflections_list_view"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    />
+
   <ListView
     android:id="@+id/reflections_list_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
 
-  <android.support.design.widget.FloatingActionButton
-    android:id="@+id/fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="end|bottom"
-    android:src="@drawable/ic_add_circle_black_24dp"
-    android:layout_margin="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    />
+
 
 </android.support.constraint.ConstraintLayout>
