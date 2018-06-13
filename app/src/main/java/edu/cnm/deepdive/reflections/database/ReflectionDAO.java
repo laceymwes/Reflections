@@ -3,7 +3,6 @@ package edu.cnm.deepdive.reflections.database;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import java.util.ArrayList;
 
 @Dao // Data Access Object
 public interface ReflectionDAO {

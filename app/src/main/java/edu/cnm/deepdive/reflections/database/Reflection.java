@@ -9,6 +9,12 @@ import java.util.Date;
 @Entity
 public class Reflection {
 
+  public Reflection(String date, String exerciseName, String reflection) {
+    setDate(date);
+    setExerciseName(exerciseName);
+    setReflection(reflection);
+  }
+
   @NonNull
   @PrimaryKey
   private String exerciseName;
