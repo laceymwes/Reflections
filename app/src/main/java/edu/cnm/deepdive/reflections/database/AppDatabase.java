@@ -9,7 +9,7 @@ import android.content.Context;
 public abstract class AppDatabase extends RoomDatabase {
   public abstract ReflectionDAO reflectionDAO();
 
-  public static AppDatabase instance;
+  private static AppDatabase instance;
 
 
   public static AppDatabase getInstance(Context context) {
