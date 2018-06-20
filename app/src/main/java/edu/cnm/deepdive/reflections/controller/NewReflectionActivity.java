@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.reflections.controllers;
+package edu.cnm.deepdive.reflections.controller;
 
 import android.os.AsyncTask;
 import edu.cnm.deepdive.reflections.database.Reflection;
@@ -26,7 +26,7 @@ public class NewReflectionActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         new InsertAsync().execute();
-        startActivity(new Intent(getApplicationContext(), ReflectionsListActivity.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
       }
     });
     appDatabase = AppDatabase.getInstance(getApplicationContext());

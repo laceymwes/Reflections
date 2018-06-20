@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.reflections.controllers;
+package edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -38,8 +38,7 @@ public class ReflectionsFragment extends Fragment {
   }
 
   public static ReflectionsFragment newInstance() {
-    ReflectionsFragment fragment = new ReflectionsFragment();
-    return fragment;
+    return new ReflectionsFragment();
   }
 
   @Override
@@ -55,7 +54,7 @@ public class ReflectionsFragment extends Fragment {
   }
 
   @Override
-  public void onViewCreated(View view, @Nullable Bundle savedInstanceSTate) {
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     listView = view.findViewById(R.id.reflections_list_view);
     reflectionsAdapter = new ReflectionsAdapter(getContext(), R.layout.reflection_list_item);
     listView.setAdapter(reflectionsAdapter);

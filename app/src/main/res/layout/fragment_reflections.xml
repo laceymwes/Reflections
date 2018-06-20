@@ -2,7 +2,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="edu.cnm.deepdive.reflections.controllers.ReflectionsFragment">
+  tools:context="edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.ReflectionsFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <ListView
