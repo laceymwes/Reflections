@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.reflections.controllers;
 
+import android.os.AsyncTask;
 import edu.cnm.deepdive.reflections.database.Reflection;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import edu.cnm.deepdive.reflections.database.AppDatabase;
 public class NewReflectionActivity extends AppCompatActivity {
 
   private Button saveButton;
+  private AppDatabase appDatabase;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +25,32 @@ public class NewReflectionActivity extends AppCompatActivity {
     saveButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        insert();
+        new InsertAsync().execute();
         startActivity(new Intent(getApplicationContext(), ReflectionsListActivity.class));
       }
     });
+    appDatabase = AppDatabase.getInstance(getApplicationContext());
   }
 
-  private void insert() {
-    EditText date = findViewById(R.id.date_edit_text);
-    EditText exercise = findViewById(R.id.exercise_name_edit_text);
-    EditText reflection = findViewById(R.id.reflection_edit_text);
-//    AppDatabase appDatabase = new DbBuildAsync().doInBackground(getApplicationContext());
-//    new InsertAsync().backgroundHelper(appDatabase, new Reflection (date.getText().toString(),
-//                                                                exercise.getText().toString(),
-//                                                            reflection.getText().toString()));
+  private class InsertAsync extends AsyncTask<Void, Void, Void> {
+
+    private Reflection newReflection;
+
+    @Override
+    protected void onPreExecute() {
+      EditText date = findViewById(R.id.date_edit_text);
+      EditText exercise = findViewById(R.id.exercise_name_edit_text);
+      EditText reflection = findViewById(R.id.reflection_edit_text);
+      newReflection = new Reflection(date.getText().toString(),
+          exercise.getText().toString(),
+          reflection.getText().toString());
+    }
+
+    @Override
+    public Void doInBackground(Void... voids) {
+      appDatabase.reflectionDAO().insertAll(newReflection);
+      return null;
+    }
+
   }
 }

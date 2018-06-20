@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-  android:id="@+id/frame_container"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="edu.cnm.deepdive.reflections.controllers.ReflectionsListActivity">
+  tools:context="edu.cnm.deepdive.reflections.controllers.ReflectionsFragment">
+
+  <!-- TODO: Update blank fragment layout -->
+  <ListView
+    android:id="@+id/reflections_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  </ListView>
 
   <android.support.design.widget.FloatingActionButton
     android:id="@+id/reflections_fab"
@@ -17,10 +20,5 @@
     android:accessibilityTraversalBefore="@+id/reflections_list_view"
     android:layout_gravity="right|bottom"
     />
-
-  <!-- Replace with container for fragments -->
-
-
-
 
 </FrameLayout>

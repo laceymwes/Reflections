@@ -8,4 +8,7 @@
   <string name="cancel_button">Cancel</string>
   <string name="reflection_text">Reflection</string>
   <string name="date_field_label">Date</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
