@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -26,6 +26,7 @@ public class NewReflectionFragment extends Fragment {
 
   private Button saveButton;
   private AppDatabase appDatabase;
+  private View view;
 
   private OnFragmentInteractionListener mListener;
 
@@ -33,7 +34,6 @@ public class NewReflectionFragment extends Fragment {
     // Required empty public constructor
   }
 
-  // TODO: Rename and change types and number of parameters
   public static NewReflectionFragment newInstance() {
     return new NewReflectionFragment();
   }
@@ -52,6 +52,7 @@ public class NewReflectionFragment extends Fragment {
 
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    this.view = view;
     saveButton = view.findViewById(R.id.reflection_save_button);
     saveButton.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -82,7 +83,7 @@ public class NewReflectionFragment extends Fragment {
 
   public interface OnFragmentInteractionListener {
 
-    void saveReflection();
+    void onSaveReflection();
   }
 
   private class InsertAsync extends AsyncTask<Void, Void, Void> {
@@ -91,9 +92,9 @@ public class NewReflectionFragment extends Fragment {
 
     @Override
     protected void onPreExecute() {
-      EditText date = findViewById(R.id.date_edit_text);
-      EditText exercise = findViewById(R.id.exercise_name_edit_text);
-      EditText reflection = findViewById(R.id.reflection_edit_text);
+      EditText date = view.findViewById(R.id.date_edit_text);
+      EditText exercise = view.findViewById(R.id.exercise_name_edit_text);
+      EditText reflection = view.findViewById(R.id.reflection_edit_text);
       newReflection = new Reflection(date.getText().toString(),
           exercise.getText().toString(),
           reflection.getText().toString());
@@ -102,6 +103,7 @@ public class NewReflectionFragment extends Fragment {
     @Override
     public Void doInBackground(Void... voids) {
       appDatabase.reflectionDAO().insertAll(newReflection);
+      mListener.onSaveReflection();
       return null;
     }
 

@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;

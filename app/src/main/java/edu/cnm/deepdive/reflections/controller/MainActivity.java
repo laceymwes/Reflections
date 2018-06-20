@@ -9,14 +9,16 @@ import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.HomeworkFragment;
 import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.ReflectionFragment;
 import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.ReflectionsFragment;
 import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.NewReflectionFragment;
-import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.ReflectionsFragment.OnFragmentInteractionListener;
 import edu.cnm.deepdive.reflections.database.Reflection;
 import edu.cnm.deepdive.reflections.edu.cnm.deepdive.fragment.MenuFragment;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements
-    OnFragmentInteractionListener {
+    MenuFragment.OnFragmentInteractionListener, ReflectionsFragment.OnFragmentInteractionListener,
+    ReflectionFragment.OnFragmentInteractionListener, HomeworkFragment.OnFragmentInteractionListener,
+    ElevatorPitchFragment.OnFragmentInteractionListener, GoldenCircleFragment.OnFragmentInteractionListener,
+    NewReflectionFragment.OnFragmentInteractionListener {
 
   private MenuFragment menuFragment;
   private ReflectionsFragment reflectionsFragment;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements
     homeworkFragment = HomeworkFragment.newInstance();
     elevatorPitchFragment = ElevatorPitchFragment.newInstance();
     goldenCircleFragment = GoldenCircleFragment.newInstance();
+    newReflectionFragment = NewReflectionFragment.newInstance();
 
   }
 
@@ -58,27 +61,36 @@ public class MainActivity extends AppCompatActivity implements
         .add(R.id.fragment_container, newReflectionFragment).commit();
   }
 
+  // Menu
   @Override
   public void onReflectionListSelection() {
     getSupportFragmentManager().beginTransaction()
         .add(R.id.fragment_container, reflectionsFragment).commit();
   }
 
+  // Menu
   @Override
   public void onHomeworkListSelection() {
     getSupportFragmentManager().beginTransaction()
         .add(R.id.fragment_container, homeworkFragment).commit();
   }
 
+  // Menu
   @Override
   public void onElevatorPitchSelection() {
     getSupportFragmentManager().beginTransaction()
-        .add(R.id.fragment_container, homeworkFragment).commit();
+        .add(R.id.fragment_container, elevatorPitchFragment).commit();
   }
 
   @Override
   public void onGoldenCircleSelection(){
 
+  }
+
+  @Override
+  public void onSaveReflectoin() {
+    getSupportFragmentManager().beginTransaction()
+        .add(R.id.fragment_container, reflectionsFragment);
   }
 
 
